@@ -112,7 +112,7 @@ class WorkoutGenerator:
             for i, exercise in enumerate(selected_exercises, start=1):
                 print(f"{i}. {exercise}: {sets} sets of {reps} reps.")
                 
-        print("-------------------------------")
+        print("-----------------------------------------------")
         
 
 
