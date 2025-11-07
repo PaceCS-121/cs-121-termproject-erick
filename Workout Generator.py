@@ -1,9 +1,7 @@
 import random
 
 class WorkoutGenerator:
-    """
-    Holds all the logic and data for generating a workout.
-    """
+
     def __init__(self):
         """
         Initializes the generator with the exercise bank.
@@ -44,9 +42,6 @@ class WorkoutGenerator:
         }
         
     def run_menu(self):
-        """
-        Runs the main menu loop to get user input.
-        """
         print("---  Welcome to the Workout Generator!  ---")
 
         while True:
@@ -80,10 +75,6 @@ class WorkoutGenerator:
 
 
     def generate_workout(self, group, level):
-        """
-        Generates and prints a random workout based on user's choice.
-        Handles different logic for cardio vs. strength.
-        """
         print(f"\n...Generating a Lvl {level} {group} workout...")
         
         exercises_list = self.exercise_bank[group]
