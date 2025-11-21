@@ -1,7 +1,6 @@
 import random
 import json
-import datetime # NEW: Required for generating timestamps
-
+import datetime 
 class WorkoutGenerator:
 
     def __init__(self):
@@ -28,10 +27,8 @@ class WorkoutGenerator:
             ]
         }
         
-        # Data Persistence Setup
         self.DATABASE_FILE = "workout_users.json"
         
-        # Load database must be called before current_user_id is set
         self.user_database = self.load_database() 
         self.current_user_id = None
         
@@ -40,8 +37,7 @@ class WorkoutGenerator:
         Loads the user database from the JSON file on startup.
         """
         try:
-            with open(self.DATABASE_FILE, 'r') as file: # 'r' for read
-                # Convert string keys back to integers for IDs on load.
+            with open(self.DATABASE_FILE, 'r') as file: 
                 data = json.load(file)
                 return {int(k): v for k, v in data.items()}
         except FileNotFoundError:
@@ -55,10 +51,9 @@ class WorkoutGenerator:
         """
         Saves the current user database to the JSON file before program exit.
         """
-        # Convert integer keys to strings for saving to JSON file.
         data_to_save = {str(k): v for k, v in self.user_database.items()}
 
-        with open(self.DATABASE_FILE, 'w') as file: # 'w' for write (overwrites existing file)
+        with open(self.DATABASE_FILE, 'w') as file: 
             json.dump(data_to_save, file, indent=4) 
 
     def register_user(self):
@@ -78,7 +73,6 @@ class WorkoutGenerator:
             except ValueError:
                 print("Error: Age, weight, and height must be valid numbers. Try again.")
 
-        # Generate a simple 4-digit ID
         user_id = random.randint(1000, 9999) 
         while user_id in self.user_database:
             user_id = random.randint(1000, 9999)
@@ -106,7 +100,6 @@ class WorkoutGenerator:
         
         if history:
             print("\n--- Your Last Workouts ---")
-            # Show the last 5 workouts 
             for i, item in enumerate(history[-5:], 1): 
                 print(f"{i}. {item}")
             print("---------------------------")
@@ -116,9 +109,7 @@ class WorkoutGenerator:
     def run_menu(self):
         print("---  Welcome to the Workout Generator!  ---")
         
-        # --- LOGIN LOGIC ---
         while self.current_user_id is None:
-            # ONLY asking for the initial choice: y, n, or quit
             initial_choice = input("Do you have an ID number? (y/n/quit): ").lower().strip()
             
             if initial_choice == 'quit':
@@ -127,10 +118,8 @@ class WorkoutGenerator:
                 return 
             
             elif initial_choice == 'y':
-                # IF 'y', THEN PROMPT FOR THE ID
                 id_input = input("Enter your ID: ").strip() 
                 try:
-                    # Convert the string input to an integer to match the keys in the database
                     user_id = int(id_input) 
                     if user_id in self.user_database:
                         self.current_user_id = user_id
@@ -146,9 +135,7 @@ class WorkoutGenerator:
             
             else:
                 print("Invalid choice. Please enter 'y', 'n', or 'quit'.")
-        # --- END LOGIN LOGIC ---
-
-        # --- MAIN WORKOUT SELECTION LOOP ---
+        
         while True:
             print("\nWhat do you want to train?")
             print("Options: 'push', 'pull', 'legs', 'cardio', or 'quit'")
@@ -156,7 +143,7 @@ class WorkoutGenerator:
             choice = input("> ").lower().strip()
 
             if choice == 'quit':
-                self.save_database() # Save the database before exiting the main loop
+                self.save_database() 
                 print("Hope you enjoyed your workout, see you next time! ⭐")
                 break 
             
@@ -186,34 +173,29 @@ class WorkoutGenerator:
         num_exercises = 4 
         selected_exercises = random.sample(exercises_list, num_exercises)
         
-        # 1. Get the current date and time
         now = datetime.datetime.now()
         
-        # 2. Format the time into a readable string (e.g., "2025-11-21 13:21")
         timestamp = now.strftime("%Y-%m-%d %H:%M") 
         
-        # 3. Build the history entry string, including the timestamp
         history_entry = f"[{timestamp}] Lvl {level} {group} workout: {', '.join(selected_exercises)}"
         
-        # --- Record the history ---
         if self.current_user_id is not None:
             self.user_database[self.current_user_id]['history'].append(history_entry)
             
         print("--- Here is your workout: ---")
         
         if group == 'cardio':
-            sets = 4 # Changed 'rounds' to 'sets' for consistency, though logic is the same
+            sets = 4 
             seconds_on = 20 + (level * 10) 
             seconds_off = 30
             
             for i, exercise in enumerate(selected_exercises, start=1):
                 print(f"{i}. {exercise}: {sets} sets of {seconds_on}s on, {seconds_off}s off.")
         
-        else: # Handles 'push', 'pull', and 'legs'
+        else: 
             sets = 3
             reps = 8 + (level * 2) 
             
-            # The single, correct loop for printing strength exercises
             for i, exercise in enumerate(selected_exercises, start=1):
                 print(f"{i}. {exercise}: {sets} sets of {reps} reps.")
                 

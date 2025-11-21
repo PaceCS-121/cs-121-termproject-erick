@@ -33,5 +33,15 @@
             "[2025-11-21 13:25] Lvl 1 legs workout: Squats, Leg Curls, Deadlifts (RDL), Calf Raises",
             "[2025-11-21 13:25] Lvl 1 cardio workout: Jump Squats, Burpees, Lunge Jumps, High Knees"
         ]
+    },
+    "2432": {
+        "name": "John",
+        "age": 20,
+        "weight": 230.0,
+        "height": 68.0,
+        "history": [
+            "[2025-11-21 13:32] Lvl 1 push workout: Incline Dumbbell Press, Lateral Raises, Chest Dips, Overhead Press",
+            "[2025-11-21 13:32] Lvl 1 pull workout: Bent Over Rows, Bicep Curls, Seated Cable Rows, Lat Pulldowns"
+        ]
     }
 }
