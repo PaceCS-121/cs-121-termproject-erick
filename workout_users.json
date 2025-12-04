@@ -97,5 +97,21 @@
             "[2025-12-04 11:28] Lvl 3 cardio workout: Lunge Jumps, High Knees, Burpees, Jumping Jacks",
             "[2025-12-04 11:28] Lvl 3 push workout: Chest Dips, Bench Press, Lateral Raises, Overhead Press"
         ]
+    },
+    "5243": {
+        "name": "Emma Watson",
+        "age": 31,
+        "weight": 145.0,
+        "height": 52.0,
+        "history": []
+    },
+    "2247": {
+        "name": "Jessica Alba",
+        "age": 42,
+        "weight": 124.0,
+        "height": 59.0,
+        "history": [
+            "[2025-12-04 14:26] Lvl 3 push workout: Bench Press, Incline Dumbbell Press, Tricep Pushdown, Chest Dips"
+        ]
     }
 }

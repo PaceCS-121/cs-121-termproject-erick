@@ -150,8 +150,8 @@ class WorkoutGenerator:
                 print("Invalid choice. Please enter 'y', 'n', or 'quit'.")
         
         while True:
-            print("\nWhat do you want to train?")
-            print("Options: 'push', 'pull', 'legs', 'cardio', or 'quit'")
+            print("\nChoose a workout type (push, pull, legs, or cardio):")
+            print("Type 'quit' to exit.")
             
             choice = input("> ").lower().strip()
 
