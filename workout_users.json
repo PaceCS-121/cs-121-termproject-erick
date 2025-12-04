@@ -19,7 +19,9 @@
         "height": 74.0,
         "history": [
             "Level 2 legs workout: Lunges, Deadlifts (RDL), Leg Press, Calf Raises",
-            "Level 3 cardio workout: Mountain Climbers, Jumping Jacks, Lunge Jumps, High Knees"
+            "Level 3 cardio workout: Mountain Climbers, Jumping Jacks, Lunge Jumps, High Knees",
+            "[2025-12-04 11:25] Lvl 3 pull workout: Bent Over Rows, Lat Pulldowns, Pull-Ups, Bicep Curls",
+            "[2025-12-04 11:25] Lvl 2 cardio workout: Jump Squats, High Knees, Lunge Jumps, Mountain Climbers"
         ]
     },
     "4880": {
@@ -65,6 +67,35 @@
             "[2025-11-23 17:29] Lvl 1 pull workout: Bent Over Rows, Lat Pulldowns, Bicep Curls, Face Pulls",
             "[2025-11-23 17:29] Lvl 1 legs workout: Deadlifts (RDL), Lunges, Leg Curls, Squats",
             "[2025-11-23 17:29] Lvl 1 cardio workout: Jumping Jacks, Mountain Climbers, Jump Squats, Lunge Jumps"
+        ]
+    },
+    "9287": {
+        "name": "Erick Espinosa",
+        "age": 39,
+        "weight": 230.0,
+        "height": 75.0,
+        "history": [
+            "[2025-12-04 11:23] Lvl 3 push workout: Bench Press, Incline Dumbbell Press, Chest Dips, Lateral Raises",
+            "[2025-12-04 11:23] Lvl 1 pull workout: Pull-Ups, Lat Pulldowns, Bent Over Rows, Face Pulls",
+            "[2025-12-04 11:23] Lvl 1 legs workout: Squats, Calf Raises, Leg Curls, Deadlifts (RDL)",
+            "[2025-12-04 11:23] Lvl 1 cardio workout: Burpees, High Knees, Jump Squats, Lunge Jumps"
+        ]
+    },
+    "2083": {
+        "name": "Jess",
+        "age": 20,
+        "weight": 20.0,
+        "height": 65.0,
+        "history": []
+    },
+    "5888": {
+        "name": "Dixie",
+        "age": 30,
+        "weight": 190.0,
+        "height": 62.0,
+        "history": [
+            "[2025-12-04 11:28] Lvl 3 cardio workout: Lunge Jumps, High Knees, Burpees, Jumping Jacks",
+            "[2025-12-04 11:28] Lvl 3 push workout: Chest Dips, Bench Press, Lateral Raises, Overhead Press"
         ]
     }
 }

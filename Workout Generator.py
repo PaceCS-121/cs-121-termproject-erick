@@ -39,7 +39,14 @@ class WorkoutGenerator:
         try:
             with open(self.DATABASE_FILE, 'r') as file: 
                 data = json.load(file)
-                return {int(k): v for k, v in data.items()}
+                result = {}
+                for k, v in data.items():
+                    try:
+                        ik = int(k)
+                    except (ValueError, TypeError):
+                        ik = k
+                    result[ik] = v
+                return result
         except FileNotFoundError:
             print("Starting fresh database: No user file found.")
             return {}
@@ -52,9 +59,11 @@ class WorkoutGenerator:
         Saves the current user database to the JSON file before program exit.
         """
         data_to_save = {str(k): v for k, v in self.user_database.items()}
-
-        with open(self.DATABASE_FILE, 'w') as file: 
-            json.dump(data_to_save, file, indent=4) 
+        try:
+            with open(self.DATABASE_FILE, 'w') as file: 
+                json.dump(data_to_save, file, indent=4)
+        except Exception as e:
+            print(f"Warning: Failed to save database: {e}")
 
     def register_user(self):
         """
@@ -87,7 +96,7 @@ class WorkoutGenerator:
         
         self.user_database[user_id] = user_data
         
-        print(f"\nWelcome, {name}! Your unique ID is: **{user_id}**")
+        print(f"\nWelcome, {name}! Your unique ID is: {user_id}")
         print("Please remember this ID for future use.")
         
         return user_id
@@ -96,8 +105,12 @@ class WorkoutGenerator:
         """
         Reviews and prints the current user's past workout history.
         """
-        history = self.user_database[self.current_user_id]['history']
-        
+        if self.current_user_id not in self.user_database:
+            print("No user found. Please register or enter a valid ID.")
+            return
+
+        history = self.user_database.get(self.current_user_id, {}).get('history', [])
+
         if history:
             print("\n--- Your Last Workouts ---")
             for i, item in enumerate(history[-5:], 1): 
